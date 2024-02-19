@@ -1,23 +1,35 @@
 // [String Part - 1]
-// [BOJ - 2744] 대소문자 바꾸기
-// https://www.acmicpc.net/problem/2744
+// [BOJ - 1919] 애너그램 만들기
+// https://www.acmicpc.net/problem/1919
 
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = sc.next();
+        String a = sc.next();
+        String b = sc.next();
 
-        for (int i =0; i<str.length(); i++) {
-            char ch = str.charAt(i);
-            if ('A' <= ch && ch <= 'Z') {
-                // int dist =  str.charAt(i) - 'A';
-                // int lower_ascii = 'a' + dist;
-                System.out.print((char) ('a' + str.charAt(i) - 'A'));
+        int[] countA = new int[26];
+        int[] countB = new int[26];
+
+
+        for(int i=0; i<a.length(); i++) {
+            countA[a.charAt(i) - 'a']++;
+        }
+        for(int i=0; i<b.length(); i++) {
+            countB[b.charAt(i) - 'a']++;
+        }
+        int res = 0;
+        for(int i=0; i<26; i++) {
+            int x = countA[i];
+            int y = countB[i];
+            if (x > y) {
+                res += x-y;
             }
-            else {
-                System.out.print((char) ('A' + str.charAt(i) - 'a'));
+            else if (x < y) {
+                res += y-x;
             }
         }
+        System.out.println(res);
     }
 }
