@@ -1,9 +1,12 @@
+package Part1.문자열;
+
 // [String Part - 1]
 // [BOJ - 1157] 단어 공부
 // https://www.acmicpc.net/problem/1157
 
 import java.util.Scanner;
-public class Main {
+
+public class BOJ_1157_단어공부 {
 
     public static int[] getAlphaCount(String str) {
         int[] count = new int[26];
